@@ -9,7 +9,11 @@ Visitors to the site can vote for their favorite badge on each student's page. T
 
 You can find the main page at spa-badge.html. Click the Sample Page link to see what a person's badge page should look like.
 
-The app will have two servers, a front-end server and a back-end server. You can use the command `ruby -run -e httpd . -p 9000` to run your front-end server containing your static HTML files and your JavaScript. Access the server on `localhost:9000`.
+The app will have two servers, a front-end server and a back-end server. You can use the command 
+
+`ruby -run -e httpd . -p 9000`
+
+to run your front-end server containing your static HTML files and your JavaScript. Access the server on `localhost:9000`.
 
 Your back-end server will **ONLY** serve JSON data. Your Rails application should have **ZERO** views. Run the back-end server using `rails server`. 
 
