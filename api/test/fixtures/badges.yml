@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sentence: MyString
+  votes: 1
+  person_id: 
+
+two:
+  sentence: MyString
+  votes: 1
+  person_id: 
