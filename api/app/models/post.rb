@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   validates :content, presence: true
 
-  def total_vote
+  def total_score
     total = 0
     self.votes.each do |vote|
       total += vote.vote_type
