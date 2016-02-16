@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
+  root "students#index"
+
   resources :badges, except: [:new, :edit]
+
+  resources :users, only: [:show, :index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
