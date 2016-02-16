@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216190805) do
+ActiveRecord::Schema.define(version: 20160216201935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "content"
+  create_table "badges", force: :cascade do |t|
+    t.string   "body"
     t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160216190805) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "vote_type"
-    t.integer  "post_id"
+    t.integer  "badge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

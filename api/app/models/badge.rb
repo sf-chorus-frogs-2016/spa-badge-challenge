@@ -1,8 +1,8 @@
-class Post < ActiveRecord::Base
+class Badge < ActiveRecord::Base
   belongs_to :student
   has_many :votes
 
-  validates :content, presence: true
+  validates :body, presence: true
 
   def total_score
     total = 0

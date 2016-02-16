@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  has_many :posts
+  has_many :badges
 
   validates :name, presence: true, uniqueness: true
 end
