@@ -1,47 +1,33 @@
 class BadgesController < ApplicationController
-  # before_action :set_post, only: [:show, :update, :destroy]
-  # def index
-  #   @posts = Post.all
-  #   render json: @posts
-  # end
-  #
-  # def show
-  #   render json: @post
-  # end
-  #
-  # def create
-  #   @post = Post.new(post_params)
-  #   if @post.save
-  #     render json: @post, status: :created, location: @post
-  #   else
-  #     err
-  #   end
-  # end
-  #
-  # def update
-  #   if @post.update(post_params)
-  #     head :no_content
-  #   else
-  #     err
-  #   end
-  # end
-  #
-  # def destroy
-  #   @post.destroy
-  #   head :no_content
-  # end
-  #
-  # private
-  #
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
-  #
-  # def post_params
-  #   params.permit(:title, :author, :date, :body)
-  # end
-  #
-  # def err
-  #   render json: @post.errors, status: :unprocessable_entity
-  # end
+
+  before_action :set_badge, only: [:show, :update, :destroy]
+
+  def index
+    @badges = Badge.where(student_id: params[:student_id])
+    @prepared_badges = @badges.map {|badge| prepare_badge(badge) }
+    render json: @prepared_badges
+  end
+
+
+  def create
+    @badge = Badge.new(badge_params)
+    render json: prepare_badge(@badge), status: :created
+  end
+
+  private
+  def set_badge
+    @post = Badge.find(params[:id])
+  end
+
+  def badge_params
+    params.permit(:body)
+  end
+
+  def display_error
+    render json: @post.errors, status: :unprocessable_entity
+  end
+
+  def prepare_badge(badge)
+    badge.attributes.merge({total: badge.total_score})
+  end
 end
