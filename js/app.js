@@ -4,7 +4,7 @@ $(document).ready(function() {
     type: 'GET'
   })
   .then(function(response){
-    var students = JSON.parse(response);
+    var student_data = JSON.parse(response);
 
     //grap the template script
     var theStudentsScript = $('#students-template').html();
@@ -12,21 +12,11 @@ $(document).ready(function() {
     //compile the template
     var studentTemplate = Handlebars.compile(theStudentsScript);
 
-    //define js data object
-    for(var i=0; i< students.length; i++){
-      var studentGroup = {
-        "name": students[i].name
-      }
-    }
-
     // Pass our data to the template
-    var theCompliedHtml = studentTemplate(studentGroup);
+    var theCompliedHtml = studentTemplate({students:student_data});
+    // console.log(theCompliedHtml);
 
     // Add the compiled html to the page
-    $('.content-placeholder').html(theCompliedHtml);
-    console.log(studentGroup);
-    console.log(theStudentsScript);
-    console.log(studentTemplate);
-    console.log(theCompliedHtml);
+    $('.students-list').html(theCompliedHtml);
   })
 })
