@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  get 'player/index'
+
+  get 'badge/welcome'
+
+  root 'badge#welcome'
+
+  resources :badges
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
