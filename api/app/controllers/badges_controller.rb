@@ -21,11 +21,17 @@ class BadgesController < ApplicationController
 # exists to allow Points to be adjusted - not otherwise adding Badge edit functionality
 # maybe it's better to create custom routes for up/down votes ...
   def update
-    if @badge.update(badge_params)
-      head :no_content
-    else
-      err
-    end
+    # if @badge.update(badge_params)
+    #   head :no_content
+    # else
+    #   err
+    # end
+    p "--------------------------------"
+    p params
+    p "****************************"
+    p "you did it!"
+    p "--------------------------------"
+
   end
 
   private
