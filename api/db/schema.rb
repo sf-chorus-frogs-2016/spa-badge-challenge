@@ -11,9 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160216183555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "badges", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "badges", ["student_id"], name: "index_badges_on_student_id", using: :btree
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "badge_id"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "votes", ["badge_id"], name: "index_votes_on_badge_id", using: :btree
+  add_index "votes", ["student_id"], name: "index_votes_on_student_id", using: :btree
+
+  add_foreign_key "badges", "students"
+  add_foreign_key "votes", "badges"
+  add_foreign_key "votes", "students"
 end
