@@ -66,7 +66,7 @@ var miniQuery = (function(){
             newReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             newReq.send(ajaxRequest.data);
           } else {
-          newReq.send();
+            newReq.send();
           };
           newReq.onload = function() {
             if(this.status >= 200 && this.status < 300) {

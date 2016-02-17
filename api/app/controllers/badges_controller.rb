@@ -8,8 +8,9 @@ class BadgesController < ApplicationController
 
   def create
     @badge = Badge.new(badge_params)
+    @badge.student_id = params[:student_id]
     if @badge.save
-      render json: @badge, status: :created, location: @badge
+      render json: @badge, status: :created
     else
       err
     end
@@ -22,7 +23,7 @@ class BadgesController < ApplicationController
   end
 
   def badge_params
-    params.permit(:name)
+    params.permit(:text)
   end
 
   def err
