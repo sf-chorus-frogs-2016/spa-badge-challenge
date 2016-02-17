@@ -11,7 +11,7 @@ You can find the main page at spa-badge.html. Click the Sample Page link to see 
 
 The app will have two servers, a front-end server and a back-end server. You can use the command `ruby -run -e httpd . -p 9000` to run your front-end server containing your static HTML files and your JavaScript. Access the server on `localhost:9000`.
 
-Your back-end server will **ONLY** serve JSON data. Your Rails application should have **ZERO** views. Run the back-end server using `rails server`. 
+Your back-end server will **ONLY** serve JSON data. Your Rails application should have **ZERO** views. Run the back-end server using `rails server`.
 
 ### Directory structure
 ```
@@ -35,5 +35,8 @@ Considerations
 - Sort badges by vote count.
 - Routing. http://myapp.com/#walker should show me Walker's page for example. Check out location.hash, window.onhashchange, and the pushState API for implementation ideas.
 - Keeping track of votes. Use document.cookie to manage how many times a person has voted.
-- Security. Escape the user's input to avoid XSS attacks. http://www.veracode.com/security/xss. Rails might already take care of this for you. Try naming a badge "<script>alert('lol')</script>" and see what happens. 
+- Security. Escape the user's input to avoid XSS attacks. http://www.veracode.com/security/xss. Rails might already take care of this for you. Try naming a badge "<script>alert('lol')</script>" and see what happens.
 - TodoMVC has helpful tips for patterns you could use in your app: https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs
+
+
+GONNA GET SHIT DONE!!!!
