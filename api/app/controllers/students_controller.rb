@@ -6,6 +6,6 @@ class StudentsController < ApplicationController
   end
 
   def show
-
+    render json: @student
   end
 end
