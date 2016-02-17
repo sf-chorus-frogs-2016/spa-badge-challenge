@@ -1,87 +1,52 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-SweetSelector = {
-  select: function(string){
-    if(string[0] === "#"){
-      return document.getElementById(string.slice(1))
-    }
-    else if(string[0] === "."){
-      return document.getElementsByClassName(string.slice(1))[0]
-    }
-    else{
-      return document.getElementsByTagName(string)[0]
-    }
-  }
-};
+$("#student-list-div").on('click','.home-link',function(e){
+  e.preventDefault();
+  DOM.hide("#student-list-div");
+  DOM.show("#student-show-page")
+  student_id = $(this).attr('id');
+  showResponse = AjaxWrapper.request({type: 'GET', url: "http://localhost:3000/students/"+student_id});
+  showResponse.then(function(data){
+    current_student = JSON.parse(data);
+    badges = current_student.badges;
+    showDiv = SweetSelector.select("#student-show-page");
+    nameHeader = document.createElement("H1");
+    nameHeader.innerHTML=current_student.name;
+    showDiv.appendChild(nameHeader);
+    for (var i = 0; i < badges.length; i++){
+      var x = document.createElement("LI");
+      x.innerHTML = badges[i].text + "<img class='upvote' id="+badges[i].id+" src='img/upvote.gif'><img class='downvote' id="+badges[i].id+" src='img/downvote.gif'>";
+      showDiv.appendChild(x);
+    };
+    brTag = document.createElement("br")
 
-DOM = {
-  hide: function(element){
-    return SweetSelector.select(element).style.display = "none";
-  },
-  show: function(element){
-    return SweetSelector.select(element).style.display = "initial";
-  },
-  addClass: function(currentClass, addedClass){
-    return SweetSelector.select(currentClass).className += (" " + addedClass);
-  },
-  removeClass: function(currentClass,removedClass){
-    var theClass = SweetSelector.select(currentClass);
-    var classes = theClass.className.split(" ");
-    classes.splice(classes.indexOf("removedClass"));
-    return theClass.className = classes.join(" ")
-  }
-};
+    newBadge = document.createElement("input");
+    newBadge.class = 'newBadge';
+    newBadge.type="text";
+    showDiv.appendChild(newBadge);
 
-EventDispatcher = {
-  on: function(element, event, eventFunction){
-    return SweetSelector.select(element).addEventListener(event, eventFunction);
-  },
-  trigger: function(element, event){
-    var newEvent = new Event(event)
-    return SweetSelector.select(element).dispatchEvent(newEvent);
-  }
-};
+    submit = document.createElement("input");
+    submit.class = 'submitButton';
+    submit.type="submit";
+    submit.value="Add New Badge!";
+    showDiv.appendChild(submit);
+    showDiv.appendChild(brTag);
 
-AjaxWrapper = {
-  request: function(hash){
-    var ourPromise = new Promise(function(resolve, reject){
-      var xmlRequest = new XMLHttpRequest();
-      xmlRequest.open(hash.type, hash.url, true);
-      xmlRequest.send();
-      xmlRequest.onload = function() {
-        if (this.status >= 200 && this.status < 400) {
-          resolve(this.response);
-        } else {
-          reject(this.statusText);
-        }
-      };
-      xmlRequest.onerror = function() {
-        reject(this.statusText);
-      }
-    })
-    return ourPromise
-  }
-};
-
-
-indexResponse = AjaxWrapper.request({type: 'GET', url: "http://localhost:3000/students"});
-  indexResponse.then(function(data){
-  students = JSON.parse(data);
-  list = SweetSelector.select(".student_list");
-  for (var i = 0; i < students.length; i++){
-  var x = document.createElement("LI");
-  x.innerHTML = "<a class='home-link' id='link-"+students[i].id+"' href='students/"+students[i].id+"'>"+students[i].name+"</a>";
-  list.appendChild(x)}
-});
-
-EventDispatcher.on('a','home-link',function(){
-  id =
-  showResponse = AjaxWrapper.request({type: 'GET', url: "http://localhost:3000/students/:id"})
+    homepageLink = document.createElement("a");
+    homepageLink.id = 'returnHome';
+    homepageLink.innerHTML="Return Home";
+    showDiv.appendChild(homepageLink);
+  });
 })
 
+$("#student-show-page").on('click',"#returnHome",function(e){
+  e.preventDefault();
+  DOM.hide("#student-show-page");
+  DOM.show("#student-list-div");
+  SweetSelector.select("#student-show-page").innerHTML = "";
+});
 
 
-// showResponse = AjaxWrapper.request({type: 'GET', url: "http://localhost:3000/students/:id"});
 
 
 
