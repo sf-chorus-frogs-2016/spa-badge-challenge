@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160216183555) do
   create_table "votes", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "badge_id"
-    t.string   "type"
+    t.string   "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

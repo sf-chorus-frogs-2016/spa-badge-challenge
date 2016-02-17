@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :update, :destroy]
 
   def index
-    @votes = Vote.all
+    @votes = Vote.where(badge_id: params[:badge_id])
     render json: @votes
   end
 

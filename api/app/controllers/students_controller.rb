@@ -10,28 +10,6 @@ class StudentsController < ApplicationController
     render json: @student
   end
 
-  # def create
-  #   @student = Student.new(student_params)
-  #   if @student.save
-  #     render json: @student, status: :created, location: @student
-  #   else
-  #     err
-  #   end
-  # end
-
-  # def update
-  #   if @student.update(student_params)
-  #     head :no_content
-  #   else
-  #     err
-  #   end
-  # end
-
-  # def destroy
-  #   @student.destroy
-  #   head :no_content
-  # end
-
   private
 
   def set_student

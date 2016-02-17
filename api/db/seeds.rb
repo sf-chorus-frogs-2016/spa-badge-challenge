@@ -27,3 +27,12 @@ Badge.create(text: "test3", student_id: 3)
 Badge.create(text: "test1", student_id: 1)
 Badge.create(text: "test2", student_id: 2)
 Badge.create(text: "test3", student_id: 3)
+
+
+15.times do
+  Vote.create(student_id: rand(1..8), badge_id: rand(1..12), vote_type: "up")
+end
+
+15.times do
+  Vote.create(student_id: rand(1..8), badge_id: rand(1..12), vote_type: "down")
+end
