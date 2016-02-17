@@ -1,7 +1,7 @@
 @import url("normalize.css");
 
 body {
-  background-color: #000;
+  background-color: #eee;
 }
 
 h1, h2, p, div {
@@ -10,12 +10,12 @@ h1, h2, p, div {
 
 a {
   text-decoration: none;
-  color: dodgerblue;
+  color: black;
   font-size: 20px;
 }
 
 a:visited {
-  color: purple;
+  color: grey;
 }
 
 a:hover {
