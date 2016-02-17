@@ -12,16 +12,12 @@
       <h1> SPA Badge </h1>
     </div>
     <h1> SF Cohorts </h1>
-      <ul>
-
+      <ul id="cohort-name">
         <script id="cohort" type="text/x-handlebars-template">
-          <p>HELLO WORLD {{name}} {{year}}</p>
+          {{#each cohorts}}
+            <li><a href="">{{name}} {{year}}</a></li>
+          {{/each}}
         </script>
-
-
-        <h1 class="test"></h1>
-        <li><a href="#">#cohort</a></li>
-        <li><a href="sample-page.html">Sample Page</a></li>
       </ul>
   </div>
 </body>

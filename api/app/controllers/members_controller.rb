@@ -7,7 +7,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    render json: @member
+    render json: @member, include: [:cohort, :badges]
   end
 
   def create
