@@ -5,19 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-5.times do |count|
-  Student.create(name:Faker::Name.first_name)
+chorus_frogs= ["Ovi","Bernice","Beni","Coleby","Fatma","Josh","Lu","Regina","Jon","Karla","Lindsey","Natasha","Ryan","Sean","Shawn","Michael D","Michael W","Walter"]
+chorus_frogs.each do |name|
+  Student.create(name: name)
 end
 
 
-100.times do
-  Vote.create(student_id: rand(1..5), badge_id: rand(1..20), vote_value: [-1,1].sample)
+# 100.times do
+#   Vote.create(student_id: rand(1..5), badge_id: rand(1..20), vote_value: [-1,1].sample)
+# end
+
+80.times do
+  Badge.create(student_id: rand(1..18), text:Faker::Company.bs)
 end
 
-20.times do
-  Badge.create(student_id: rand(1..5), text:Faker::Company.bs)
-end
-
-Badge.all.each do |badge|
-  badge.update_attribute(:vote_total, badge.calculate_vote_total)
-end
+# Badge.all.each do |badge|
+#   badge.update_attribute(:vote_total, badge.calculate_vote_total)
+# end

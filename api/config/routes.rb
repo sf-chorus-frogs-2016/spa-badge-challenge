@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   resources :students, :badges, :votes
 
+  post 'badges/downvote/:id', to: 'badges#update_downvote'
+
+  post 'badges/:id', to: 'badges#update_upvote'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
