@@ -1,5 +1,12 @@
+
 $(document).ready(function() {
-  miniQuery.AjaxWrapper.request({
+  showStudentGroupListener();
+  displayEachStudentDetail();
+})
+
+
+var showStudentGroupListener = function(){
+   miniQuery.AjaxWrapper.request({
     url: "http://localhost:3000/students",
     type: 'GET'
   })
@@ -14,9 +21,12 @@ $(document).ready(function() {
 
     // Pass our data to the template
     var theCompliedHtml = studentTemplate({students:student_data});
-    // console.log(theCompliedHtml);
 
     // Add the compiled html to the page
     $('.students-list').html(theCompliedHtml);
   })
-})
+}
+
+var displayEachStudentDetail = function(){
+  console.log("Student");
+}
