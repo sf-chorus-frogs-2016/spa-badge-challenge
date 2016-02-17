@@ -3,7 +3,12 @@ gem 'rails', '4.2.5'
 gem 'rails-api'
 gem 'pg'
 gem 'rack-cors'
+gem 'faker'
+gem 'bcrypt'
+gem 'better_errors'
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
+  gem 'better_errors'
+  gem 'faker'
 end
