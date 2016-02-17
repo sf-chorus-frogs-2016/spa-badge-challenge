@@ -4,7 +4,7 @@ class BadgesController < ApplicationController
   before_action :set_badge, only: [:update]
 
   def index
-    @badges = Badge.where(member_id: params[:member_id])
+    @badges = Badge.where(member_id: params[:member_id]).order(points: :desc)
     render json: @badges
   end
 
