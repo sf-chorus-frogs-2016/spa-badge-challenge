@@ -1,0 +1,13 @@
+class PeopleController < ApplicationController
+
+  def index
+  	@people = Person.all
+  	render json: @people
+  end
+
+  def show
+  	@person = Person.find(params[:id])
+  	render json: @person, include: :badges
+  end
+  
+end
