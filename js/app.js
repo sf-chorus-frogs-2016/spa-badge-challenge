@@ -20,16 +20,21 @@ $("#student-list-div").on('click','.home-link',function(e){
     };
     brTag = document.createElement("br")
 
+    NewBadgeForm = document.createElement("form");
+    NewBadgeForm.class = "new-badge-form";
+    showDiv.appendChild(NewBadgeForm);
+    
     newBadge = document.createElement("input");
     newBadge.class = 'newBadge';
+    newBadge.name="badge";
     newBadge.type="text";
-    showDiv.appendChild(newBadge);
+    NewBadgeForm.appendChild(newBadge);
 
     submit = document.createElement("input");
     submit.id = 'submitButton';
     submit.type="submit";
     submit.value="Add New Badge!";
-    showDiv.appendChild(submit);
+    NewBadgeForm.appendChild(submit);
     showDiv.appendChild(brTag);
 
     homepageLink = document.createElement("a");
@@ -38,6 +43,12 @@ $("#student-list-div").on('click','.home-link',function(e){
     showDiv.appendChild(homepageLink);
   });
 })
+
+$("#student-show-page").on('submit',function(e){
+  e.preventDefault();
+  debugger
+  newBadgeResponse = AjaxWrapper.request({type: 'POST', url: "http://localhost:3000/badges"});
+});
 
 $("#student-show-page").on('click',"#returnHome",function(e){
   e.preventDefault();
