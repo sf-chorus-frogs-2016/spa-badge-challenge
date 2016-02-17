@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <title>Gem Badge!</title>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1> Gem Badge! </h1>
+    </div>
+    <!-- chopping block! -->
+<!--     <h1> The Crystal Gems of San Francisco </h1>
+      <ul>
+       <!-- Handlebars content goes here, should appear at top of list -->
+<!--         <div class="content-placeholder"></div>
+        <div class="second-placeholder"></div>
+        <li><a href="#">Amethyst</a></li>
+        <li><a href="#">Garnet</a></li>
+        <li><a href="#">Ruby</li>
+        <li><a href="#">Pearl</a></li>
+        <li><a href="#">Stu</a></li>
+        <li><a href="#">Diamond</a></li>
+        <li><a href="#">Onyx</a></li>
+        <li><a href="#">Emerald</a></li>
+        <li><a href="#">Sarah</a></li>
+        <li><a href="#">Cat</a></li>
+        <li><a href="sample-page.html">Sample Page</a></li>
+      </ul>  -->
+
+    <div class="main-page">
+      <h1> The Crystal Gems of San Francisco </h1>
+        <ul id="member-list">
+        </ul>
+    </div>
+
+    <div class="badge-page">
+      <h1>Secret Powers</h1>
+      <div class="show-user">
+        <h2 class="member-header"></h2>
+        <div id="badge-list">
+        </div>
+      </div>
+      <div class="add-badge">
+        <h3> Add a Badge: </h3>
+        <form action="#">
+          <input type="hidden" name="user_id" value="5" />
+          <input type="text" name="content" />
+          <input type="image" src="img/add_button.png" alt="Add Slogan" />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+
+  <!-- including Jquery just to try it out first! -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/miniquery.js"></script>
+<script src="js/handlebars-v4.0.5.js"></script>
+<script src="js/app.js"></script>
+
+  <!-- Handlebars templates -->
+  <script id="members-template" type="text/x-handlebars-template">
+    <li><a href="#{{name}}">{{ name }}</a></li>
+  </script>
+
+<!-- The #each helper iterates over an array of items. -->
+  <script id="example-template" type="text/x-handlebars-template">
+    <!-- people is looked up on the global context, the one we pass to the compiled template -->
+    {{#each people}}
+      <!-- Here the context is each individual person. So we can access its properties directly: -->
+      <p>{{firstName}} {{lastName}}</p>
+    {{/each}}
+  </script>
+
+</html>

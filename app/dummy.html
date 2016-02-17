@@ -1,0 +1,24 @@
+dummy.html
+
+<div id='" + badges[i].id + "' class='slogan'>
+  <div class='body'>" + (i + 1) + ") " + badges[i].title + "
+  </div>
+  <div class='vote-on'>
+    <form action='#'>
+      <input type='hidden' name='slogan_id' value=" + badges[i].id + ">
+      <input type='hidden' name='vote_type' value='up'>
+      <button class='up' type='submit' name='submit'>
+        <img src='img/upvote.gif' alt='upvote_image' />
+      </button>
+    </form>
+  </div>
+  <div class='vote-on'>
+    <form action='#'>
+      <input type='hidden' name='slogan_id' value=" + badges[i].id + ">
+      <input type='hidden' name='vote_type' value='down'>
+      <button class='down' type='submit' name='submit'>
+        <img src='img/downvote.gif' alt='downvote_image' />
+      </button>
+    </form>
+  <p>" + badges[i].points + " Points!</p>
+</div>
