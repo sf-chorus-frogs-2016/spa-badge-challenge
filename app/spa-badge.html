@@ -7,11 +7,13 @@
   <div class="container">
     <div class="logo">
       <h1> SPA Badge </h1>
-    </div>
+    </div> <!-- end logo -->
+    <div id="content-space">
     <h1> Chorus Frogs </h1>
       <ul id="student-list">
       </ul>
-  </div>
+    </div> <!-- end content-space -->
+  </div> <!-- end container -->
 </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script src="js/app.js"></script>
@@ -19,8 +21,55 @@
 
   <script id="list-all-studs" type="text/x-handlebars-template">
     {{#each students}}
-      <li>{{first_name}} {{last_name}}</li>
+      <li><a class="single-student" href="students/{{id}}">{{first_name}} {{last_name}}</a></li>
     {{/each}}
   </script>
+
+  <script id="student-details" type="text/x-handlebars-template">
+    <h1>Words To Be Remembered By</h1>
+    <h2>{{student.first_name}}&#39s Badges</h2>
+    <div class="slogan">
+    {{#each badges}}
+
+      <ol>
+      <li class="body">{{text}}</li>
+
+      <div class="vote-on">
+          <form action="localhost:3000/students/{{../student.id}}/badges/{{id}}">
+            <input type="hidden" name="vote_type" value="up">
+            <button class="up" type="submit" name="submit">
+              <img src="img/upvote.gif" alt="upvote_image" />
+            </button>
+          </form>
+        </div>
+
+        <div class="vote-on">
+          <form action="#">
+            <input type="hidden" name="slogan_id" value=1>
+            <input type="hidden" name="vote_type" value="down">
+            <button class="down" type="submit" name="submit">
+                <img src="img/downvote.gif" alt="downvote_image" />
+            </button>
+          </form>
+        </div>
+
+        <div class="points">
+          (25 points)
+        </div>
+      </ol>
+      </div>
+
+    {{/each}}
+
+    <div class="add-badge">
+      <h3> Add a Badge: </h3>
+      <form action="#">
+        <input type="hidden" name="user_id" value="5" />
+        <input type="text" name="content" />
+        <input type="image" src="img/add_button.png" alt="Add Slogan" />
+      </form>
+    </div>
+  </script>
+
 
 </html>
