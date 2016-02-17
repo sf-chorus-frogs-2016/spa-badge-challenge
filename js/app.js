@@ -98,7 +98,4 @@ $("#student-show-page").on('click',".downvote",function(e){
 
 });
 
-
-
-
 });
