@@ -32,7 +32,7 @@ miniQuery.AjaxWrapper.request({
         var badgeList = miniQuery.SweetSelector.select('#badge-list');
         badgeList.innerHTML = "";
         for(var i = 0; i < badges.length; i++){
-          var badgeInfo = "<div id='" + badges[i].id + "' class='slogan'><div class='body'>" + (i + 1) + ") " + badges[i].text + "</div><div class='vote-on'><form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='up'><button class='up' type='submit' name='submit'><img src='img/upvote.gif' alt='upvote_image' /></button></form></div><div class='vote-on'><form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='down'><button class='down' type='submit' name='submit'><img src='img/downvote.gif' alt='downvote_image' /></button></form></div><div class='points-" + badges[i].id +"'>(0 points)</div>";
+          var badgeInfo = "<div id='" + badges[i].id + "' class='slogan'><div class='body'>" + (i + 1) + ") " + badges[i].text + "</div><div class='vote-on'><form class = 'badge-" + badges[i].id + "-form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='up'><button class='up' type='submit' name='submit'><img src='img/upvote.gif' alt='upvote_image' /></button></form></div><div class='vote-on'><form class = 'badge-" + badges[i].id + "-form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='down'><button class='down' type='submit' name='submit'><img src='img/downvote.gif' alt='downvote_image' /></button></form></div><div class='points-" + badges[i].id +"'>(0 points)</div>";
           badgeList.innerHTML += badgeInfo;
           //Get votes for badge
           miniQuery.AjaxWrapper.request({
@@ -61,5 +61,33 @@ miniQuery.AjaxWrapper.request({
 });
 
 miniQuery.DOM.hide('.badge-page');
+
+var badgeList = miniQuery.SweetSelector.select('#badge-list');
+console.log(badgeList);
+badgeList.onclick = function(e){
+  e = e || event;
+  var target = e.target || e.srcElement;
+  while (target != badgeList) {
+    if (target.nodeName == 'FORM') {
+      var badgeId = target.getAttribute('class').match(/\d+/)[0];
+      var value;
+      var params = '';
+      for (var i = 0; i < target.elements.length; i++) {
+        value = target.elements[i].value;
+        params += target.elements[i].name + "=" + encodeURIComponent(value) + "&";
+      }
+      console.log(params);
+      miniQuery.AjaxWrapper.request({
+        url: 'http://localhost:3000/badges/' + badgeId + '/votes',
+        type: 'POST',
+        data: params
+      }).then(function(response){
+        console.log(response);
+      });
+    }
+    target = target.parentNode;
+  }
+  return false;
+}
 
 

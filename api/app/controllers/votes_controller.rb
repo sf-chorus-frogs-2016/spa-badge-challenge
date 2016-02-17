@@ -12,24 +12,14 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
+    p "im here"
+    @vote.student_id = 1
+    @vote.badge_id = params[:badge_id]
     if @vote.save
-      render json: @vote, status: :created, location: @vote
+      render json: @vote, status: :created
     else
       err
     end
-  end
-
-  def update
-    if @vote.update(vote_params)
-      head :no_content
-    else
-      err
-    end
-  end
-
-  def destroy
-    @vote.destroy
-    head :no_content
   end
 
   private
@@ -39,7 +29,7 @@ class VotesController < ApplicationController
   end
 
   def vote_params
-    params.permit(:name)
+    params.permit(:vote_type)
   end
 
   def err

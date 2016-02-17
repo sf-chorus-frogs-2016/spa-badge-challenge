@@ -62,8 +62,12 @@ var miniQuery = (function(){
         var promise = new Promise(function(resolve, error){
           var newReq = new XMLHttpRequest();
           newReq.open(ajaxRequest.type, ajaxRequest.url);
+          if (!!ajaxRequest.data) {
+            newReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            newReq.send(ajaxRequest.data);
+          } else {
           newReq.send();
-
+          };
           newReq.onload = function() {
             if(this.status >= 200 && this.status < 300) {
               resolve(this.response);
@@ -71,7 +75,6 @@ var miniQuery = (function(){
               error(this.statusText);
             }
           };
-
         });
         return promise;
       }

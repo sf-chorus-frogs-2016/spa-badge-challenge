@@ -6,10 +6,6 @@ class BadgesController < ApplicationController
     render json: @badges
   end
 
-  def show
-    render json: @badge
-  end
-
   def create
     @badge = Badge.new(badge_params)
     if @badge.save
@@ -17,19 +13,6 @@ class BadgesController < ApplicationController
     else
       err
     end
-  end
-
-  def update
-    if @badge.update(badge_params)
-      head :no_content
-    else
-      err
-    end
-  end
-
-  def destroy
-    @badge.destroy
-    head :no_content
   end
 
   private
