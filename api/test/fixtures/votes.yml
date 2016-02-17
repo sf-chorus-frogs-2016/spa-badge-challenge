@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  student_id: 
+  badge_id: 
+
+two:
+  type: 
+  student_id: 
+  badge_id: 
