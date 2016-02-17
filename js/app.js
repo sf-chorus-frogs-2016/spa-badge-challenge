@@ -26,7 +26,7 @@ $("#student-list-div").on('click','.home-link',function(e){
     showDiv.appendChild(newBadge);
 
     submit = document.createElement("input");
-    submit.class = 'submitButton';
+    submit.id = 'submitButton';
     submit.type="submit";
     submit.value="Add New Badge!";
     showDiv.appendChild(submit);
@@ -46,6 +46,13 @@ $("#student-show-page").on('click',"#returnHome",function(e){
   SweetSelector.select("#student-show-page").innerHTML = "";
 });
 
+$("#student-show-page").on('submit',function(e){
+  debugger
+  e.preventDefault();
+  // DOM.hide("#student-show-page");
+  // DOM.show("#student-list-div");
+  // SweetSelector.select("#student-show-page").innerHTML = "";
+});
 
 
 
