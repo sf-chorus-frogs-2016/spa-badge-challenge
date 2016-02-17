@@ -2,7 +2,7 @@ class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :update, :destroy]
 
   def index
-    @badges = Badge.all
+    @badges = Badge.where(student_id: params[:student_id])
     render json: @badges
   end
 

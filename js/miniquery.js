@@ -50,7 +50,9 @@ var miniQuery = (function(){
       trigger: function(selector, event){
         var element = SweetSelector.select(selector);
         var newEvent = new Event(event);
-        element.dispatchEvent(newEvent);
+        for (var i = 0; i < elements.length; i++){
+          elements[i].dispatchEvent(newEvent);
+        };
       }
     };
   })();
