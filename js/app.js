@@ -32,7 +32,7 @@ miniQuery.AjaxWrapper.request({
         var badgeList = miniQuery.SweetSelector.select('#badge-list');
         badgeList.innerHTML = "";
         for(var i = 0; i < badges.length; i++){
-          var badgeInfo = "<div id='" + badges[i].id + "' class='slogan'><div class='body'>" + (i + 1) + ") " + badges[i].text + "</div><div class='vote-on'><form class = 'badge-" + badges[i].id + "-form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='up'><button class='up' type='submit' name='submit'><img src='img/upvote.gif' alt='upvote_image' /></button></form></div><div class='vote-on'><form class = 'badge-" + badges[i].id + "-form action='#'><input type='hidden' name='slogan_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='down'><button class='down' type='submit' name='submit'><img src='img/downvote.gif' alt='downvote_image' /></button></form></div><div class='points-" + badges[i].id +"'>(0 points)</div>";
+          var badgeInfo = "<div id='" + badges[i].id + "' class='slogan'><div class='body'>" + (i + 1) + ") " + badges[i].text + "</div><div class='vote-on'><form action='#'><input type='hidden' name='badge_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='up'><button class='up' type='submit' name='submit'><img src='img/upvote.gif' alt='upvote_image' /></button></form></div><div class='vote-on'><form action='#'><input type='hidden' name='badge_id' value=" + badges[i].id + "><input type='hidden' name='vote_type' value='down'><button class='down' type='submit' name='submit'><img src='img/downvote.gif' alt='downvote_image' /></button></form></div><div class='points-" + badges[i].id +"'>(0 points)</div>";
           badgeList.innerHTML += badgeInfo;
           //Get votes for badge
           miniQuery.AjaxWrapper.request({
@@ -62,27 +62,34 @@ miniQuery.AjaxWrapper.request({
 
 miniQuery.DOM.hide('.badge-page');
 
+// Create votes
 var badgeList = miniQuery.SweetSelector.select('#badge-list');
-console.log(badgeList);
 badgeList.onclick = function(e){
   e = e || event;
   var target = e.target || e.srcElement;
   while (target != badgeList) {
     if (target.nodeName == 'FORM') {
-      var badgeId = target.getAttribute('class').match(/\d+/)[0];
       var value;
       var params = '';
       for (var i = 0; i < target.elements.length; i++) {
         value = target.elements[i].value;
         params += target.elements[i].name + "=" + encodeURIComponent(value) + "&";
       }
-      console.log(params);
       miniQuery.AjaxWrapper.request({
-        url: 'http://localhost:3000/badges/' + badgeId + '/votes',
+        url: 'http://localhost:3000/badges/' + target.elements.badge_id.value + '/votes',
         type: 'POST',
         data: params
       }).then(function(response){
-        console.log(response);
+        var newVote = JSON.parse(response);
+        console.log(newVote);
+        var pointElement = miniQuery.SweetSelector.select('.points-' + newVote.badge_id);
+        var points;
+        if (newVote.vote_type === "up") {
+          points = parseInt(pointElement[0].innerHTML.match(/-?\d+/)[0]) + 1;
+        } else {
+          points = parseInt(pointElement[0].innerHTML.match(/-?\d+/)[0]) - 1;
+        }
+        pointElement[0].innerHTML = "(" + points + " points)";
       });
     }
     target = target.parentNode;

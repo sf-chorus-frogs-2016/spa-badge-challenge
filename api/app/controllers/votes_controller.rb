@@ -12,7 +12,6 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
-    p "im here"
     @vote.student_id = 1
     @vote.badge_id = params[:badge_id]
     if @vote.save
