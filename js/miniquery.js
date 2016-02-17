@@ -16,16 +16,28 @@ var miniQuery = (function(){
   var DOM = (function() {
     return {
       hide: function(selector) {
-        return SweetSelector.select(selector).style.display="none";
+        var element = SweetSelector.select(selector);
+        for (var i=0; i< element.length; i++) {
+          element[i].style.display="none";
+        }
       },
       show: function(selector) {
-        return SweetSelector.select(selector).style.display=null;
+        var element = SweetSelector.select(selector);
+        for (var i=0; i< element.length; i++) {
+          element[i].style.display=null;
+        }
       },
       addClass: function(selector, newClass) {
-        return SweetSelector.select(selector).className = selector.slice(1,selector.length) + " " + newClass;
+        var element = SweetSelector.select(selector);
+        for (var i=0; i< element.length; i++) {
+          element[i].className = selector.slice(1,selector.length) + " " + newClass;
+        }
       },
       removeClass: function(selector, removeClass) {
-        return SweetSelector.select(selector).className = SweetSelector.select(selector).className.replace(removeClass, '').trim();
+        var element = SweetSelector.select(selector);
+        for (var i=0; i< element.length; i++) {
+          element[i].className = element[i].className.replace(removeClass, '').trim();
+        }
       }
     };
   })();
