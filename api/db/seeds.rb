@@ -1,7 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Student.delete_all
+Badge.delete_all
+
+Student.create(first_name: "Hanah", last_name: "Yendler")
+Student.create(first_name: "Karla", last_name: "King")
+Student.create(first_name: "Shawn", last_name: "Spears")
+Student.create(first_name: "Regina", last_name: "Wong")
+Student.create(first_name: "Natasha", last_name: "Thapayali")
+Student.create(first_name: "Jon", last_name: "Huang")
+Student.create(first_name: "Michael", last_name: "Du")
+Student.create(first_name: "Walter", last_name: "Kerr")
+Student.create(first_name: "Ryan", last_name: "Ho")
+Student.create(first_name: "Josh", last_name: "Kim")
+Student.create(first_name: "Beni", last_name: "Shpringer")
+Student.create(first_name: "Lindsey", last_name: "Stevenson")
+Student.create(first_name: "Bernice", last_name: "Chua")
+Student.create(first_name: "Fatma", last_name: "Ocal")
+Student.create(first_name: "Cole", last_name: "")
+Student.create(first_name: "Michael W", last_name: "Whelpley")
+Student.create(first_name: "Sean", last_name: "Massih")
+Student.create(first_name: "Ovi", last_name: "Calvo")
+Student.create(first_name: "Lu", last_name: "De Castro")
+
+Badge.create(text: "test", student_id: 1, votes: 4)
+Badge.create(text: "test", student_id: 2, votes: 5)
+Badge.create(text: "test", student_id: 3, votes: 1)
+Badge.create(text: "test", student_id: 4, votes: 5)
+Badge.create(text: "test", student_id: 5, votes: 9)
+Badge.create(text: "test", student_id: 6, votes: 3)
+Badge.create(text: "test", student_id: 7, votes: 2)
+Badge.create(text: "test", student_id: 8, votes: 1)
+Badge.create(text: "test", student_id: 9, votes: 10)
+Badge.create(text: "test", student_id: 10, votes: 4)
+Badge.create(text: "test", student_id: 11, votes: 5)
+Badge.create(text: "test", student_id: 12, votes: 4)
+Badge.create(text: "test", student_id: 13, votes: 5)
+Badge.create(text: "test", student_id: 14, votes: 4)
+Badge.create(text: "test", student_id: 15, votes: 7)
+Badge.create(text: "test", student_id: 16, votes: 9)
+Badge.create(text: "test", student_id: 17, votes: 4)
+Badge.create(text: "test", student_id: 18, votes: 2)
+Badge.create(text: "test", student_id: 19, votes: 1)
