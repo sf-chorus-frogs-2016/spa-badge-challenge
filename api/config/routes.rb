@@ -55,4 +55,6 @@ Rails.application.routes.draw do
   #   end
 
   resources :persons, :badges
+
+  # root << what do we put here?
 end
