@@ -12,22 +12,24 @@
     <div class="logo">
       <h1> Single-Page Application Badge </h1>
     </div>
-    <h1> *** SF Chorous Frogs 2016 ***</h1>
 
     <div class="content-placeholder">
-      <ul class="students-list">
-      </ul>
+        <h1> *** SF Chorous Frogs 2016 ***</h1>
+        <ol class="students-list">
+        </ol>
     </div>
   </div>
 </body>
 
   <script id="students-template" type="text/x-handlebars-template">
     <ul class="all-students">
-      {{#each students}}
-        <li class="student-group">
-          <a href="/students/{{id}}" id="{{id}}">{{ name }}</a>
-        </li>
-      {{/each}}
+
+        {{#each students}}
+          <li class="student-group">
+            <a href="/students/{{id}}" id="{{id}}">{{ name }}</a>
+          </li>
+        {{/each}}
+
     </ul>
   </script>
 
@@ -38,12 +40,33 @@
         <div class="slogan">
 
             <div class="body">
-              {{#each badges}}
-                <li class="badge-group" badge_id="{{id}}">{{ body }}</li>
+              <h1>{{ name }}s Badges</h1>
+              <ol>
+                {{#each badges}}
+                  <li class="badge-group" badge_id="{{id}}">{{ body }}
+                    <img src="/img/upvote.gif" alt="upvote_image">
+                    <img src="/img/downvote.gif" alt="downvote_image">
+                  </li>
+                {{/each}}
+              </ol>
+            </div>
+
+            <div class="body">
+              {{#each votes}}
+                <li class="vote-on" vote_id="{{id}}">
+                  {{ body }}
+                </li>
               {{/each}}
             </div>
 
         </div>
+      <div class="add-badge">
+        <h3> Add a Badge: </h3>
+        <form action="" method="POST">
+          <input type="hidden" name="badge[user_id]" value="">
+          <input type="text" name="badge[body]">
+          <input type="image" src="/img/add_button.png" alt="Add New Badge">
+        </form>
       </div>
     </div>
   </script>
