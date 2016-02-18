@@ -45,6 +45,10 @@ $(document).ready(function(){
       $('.add-badge-placeholder').html(addBadgeTemplate(person));
     });
 
+    $('#student-page').show();
+    $('#home-page').hide();
+  });
+
     $('#home-link').on('click', function(event){
       event.preventDefault();
       $('#home-page').show();
@@ -82,20 +86,6 @@ $(document).ready(function(){
       })
     })
 
-
-
-
-
-
-  })
-
-
-
-
-
-
-
-
-
-
 })
+
+
