@@ -27,12 +27,26 @@ var displayStudentList = function(){
 
 var bindListener = function(){
   miniQuery.SweetSelector.select(".content-placeholder").onclick = showEachStudentBindListener
-  miniQuery.SweetSelector.select(".content-placeholder").onclick = showEachStudentBindListener
 }
 
 var showEachStudentBindListener = function(event){
   event.preventDefault();
   event = event || window.event
   var target = event.target || event.srcElement;
-  console.log(target);
+  var studentId = target.getAttribute('id').match(/\d+/)[0];
+
+  miniQuery.AjaxWrapper.request({
+    url: "http://localhost:3000/students/" + studentId,
+    type: "GET"
+  })
+  .then(function(response){
+    var badge_data = JSON.parse(response).badges;
+    var theBadgeScript = $('#each-student').html();
+    var badgeTemplate = Handlebars.compile(theBadgeScript);
+    var theCompliedHtml = badgeTemplate({badges:badge_data});
+    $('.students-list').html(theCompliedHtml);
+    console.log(theCompliedHtml);
+  })
+
 }
+

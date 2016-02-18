@@ -16,8 +16,6 @@
 
     <div class="content-placeholder">
       <ul class="students-list">
-        <!-- <li><a href="#">Fatma</a></li>
-        <li><a href="#">Natasha</a></li> -->
       </ul>
     </div>
   </div>
@@ -35,8 +33,17 @@
 
   <script id="each-student" type="text/x-handlebars-template">
     <div class="show-student">
-      <div class="slogan-list">
 
+      <div class="slogan-list">
+        <div class="slogan">
+
+            <div class="body">
+              {{#each badges}}
+                <li class="badge-group">{{ body }}</li>
+              {{/each}}
+            </div>
+
+        </div>
       </div>
     </div>
   </script>
