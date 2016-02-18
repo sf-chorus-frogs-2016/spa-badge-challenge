@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get '/' => 'students#index'
+  resources :students, only: [:index, :show] do
+    resources :badges, except: [:new, :edit, :destroy, :update]
+  end
+  post 'badges/vote', to: 'badges#vote'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
