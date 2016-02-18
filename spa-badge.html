@@ -22,11 +22,13 @@
 
   <script id="students-template" type="text/x-handlebars-template">
 
+  <ul class="all-students">
     {{#each students}}
-      <li each-student-show="{{id}}">
+      <li class="student-group" each-student-show="{{id}}">
         <a href="#">{{ name }}</a>
       </li>
     {{/each}}
+  </ul>
 
   </script>
 
