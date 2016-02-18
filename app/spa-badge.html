@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script src="js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="js/app.js"></script>
   <title>SPABadge</title>
 </head>
 <body>
-  <div class="container">
+  <div class="main-container">
     <div class="logo">
       <h1> SPA Badge </h1>
     </div>
-    <h1> SF Teachers </h1>
-      <ul>
-        <li><a href="#">Anne</a></li>
-        <li><a href="#">Derek</a></li>
-        <li><a href="#">Hunter</li>
-        <li><a href="#">Jen</a></li>
-        <li><a href="#">Julian</a></li>
-        <li><a href="#">Sarah</a></li>
-        <li><a href="#">Shambhavi</a></li>
-        <li><a href="#">Walker</a></li>
-        <li><a href="sample-page.html">Sample Page</a></li>
-      </ul>
+    <h1> SF Students </h1>
+      <script id="student-names-script" type="text/x-handlebars-template">
+          <li><a class="student-name-link" href="#" id="{{id}}">{{name}}</a></li>
+    </script>
+        <ul>
+      <div id="all-the-peeps">
+      </div>
+        </ul>
   </div>
+
+  <div class="indi-student-container" style="display:none">
+    <h2 id="name-id">Name: {{name}}</h2>
+     <script id="student-info" type="text/x-handlebars-template">
+          <li><a class="student-info" href="#" id="{{id}}">{{name}}</a></li>
+
+    </script>
+  </div>
+
+
+
 </body>
+
 </html>
