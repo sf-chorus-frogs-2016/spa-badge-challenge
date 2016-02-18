@@ -21,21 +21,18 @@ var displayStudentList = function(){
     var theCompliedHtml = studentTemplate({students:student_data});
 
     // Add the compiled html to the page
-    // newNode.innerHTML = "<a class='student-name' id='student-" + students[i].id + "' href='#'>" + students[i].name + "</a>";
     $('.students-list').html(theCompliedHtml);
   })
 }
 
 var bindListener = function(){
   miniQuery.SweetSelector.select(".content-placeholder").onclick = showEachStudentBindListener
-  // console.log(test);
+  miniQuery.SweetSelector.select(".content-placeholder").onclick = showEachStudentBindListener
 }
 
 var showEachStudentBindListener = function(event){
   event.preventDefault();
   event = event || window.event
-  var target = event.target || event.srcElement
+  var target = event.target || event.srcElement;
   console.log(target);
-  console.log(event);
-  console.log("hey");
-  }
+}
