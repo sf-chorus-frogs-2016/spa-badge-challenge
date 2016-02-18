@@ -13,26 +13,32 @@
       <h1> SPA Badge </h1>
     </div>
     <h1> SF Chorous Frogs 2016 </h1>
+
+    <div class="content-placeholder">
       <ul class="students-list">
         <li><a href="#">Fatma</a></li>
         <li><a href="#">Natasha</a></li>
       </ul>
+    </div>
+
   </div>
 </body>
+
 
   <script id="students-template" type="text/x-handlebars-template">
 
   <ul class="all-students">
     {{#each students}}
-      <li class="student-group" each-student-show="{{id}}">
-        <a href="#">{{ name }}</a>
+      <li class="student-group">
+        <a href="/students/{{id}}" id="{{id}}">{{ name }}</a>
       </li>
     {{/each}}
   </ul>
-
   </script>
 
-  <!-- <div class="content-placeholder"></div> -->
+
+
+  </div>
 
  <!--  <div class="error page">
     <h3>Sorry, something went wrong :(</h3>

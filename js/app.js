@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(e){
   displayStudentList();
-  showEachStudentBindListener();
-  console.log("dom ready");//output to web browser console
+  bindListener();
 });
 
 var displayStudentList = function(){
@@ -27,14 +26,16 @@ var displayStudentList = function(){
   })
 }
 
-var showEachStudentBindListener = function(){
-  debugger;
-  // var studentId = miniQuery.SweetSelector.select({})
-
-  // $(".all-students").onclick = function(event) {
-    event.preventDefault();
-    event = event || window.event
-    var target = event.target || event.srcElement
-    console.log(target);
-  // }
+var bindListener = function(){
+  miniQuery.SweetSelector.select(".content-placeholder").onclick = showEachStudentBindListener
+  // console.log(test);
 }
+
+var showEachStudentBindListener = function(event){
+  event.preventDefault();
+  event = event || window.event
+  var target = event.target || event.srcElement
+  console.log(target);
+  console.log(event);
+  console.log("hey");
+  }

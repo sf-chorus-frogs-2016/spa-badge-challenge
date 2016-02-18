@@ -5,12 +5,13 @@ var miniQuery = (function(){
       if (element === "#") {
         return document.getElementById(selector.slice(1,selector.length));
       } else if (element === ".") {
-        return document.getElementsByClassName(selector.slice(1,selector.length))
+        return document.getElementsByClassName(selector.slice(1,selector.length))[0]
       } else {
         return document.getElementsByTagName(selector)[0]
       }
     },
   };
+
   var DOM = (function() {
     return {
       hide: function(selector) {
