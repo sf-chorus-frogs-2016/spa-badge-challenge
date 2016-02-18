@@ -8,11 +8,9 @@
     <div class="logo">
       <h1> SPA Badge </h1>
     </div> <!-- end logo -->
-    <div id="content-space">
     <h1> Chorus Frogs </h1>
-      <ul id="student-list">
-      </ul>
-    </div> <!-- end content-space -->
+      <div id="content-space">
+      </div>
   </div> <!-- end container -->
 </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
@@ -20,9 +18,11 @@
   <script src="js/miniQuery.js"></script>
 
   <script id="list-all-studs" type="text/x-handlebars-template">
+    <ul>
     {{#each students}}
-      <li><a class="single-student" href="students/{{id}}">{{first_name}} {{last_name}}</a></li>
+      <li><a class="single-student" id="{{id}}" href="students/{{id}}">{{first_name}} {{last_name}}</a></li>
     {{/each}}
+    </ul>
   </script>
 
   <script id="student-details" type="text/x-handlebars-template">
@@ -44,8 +44,7 @@
         </div>
 
         <div class="vote-on">
-          <form action="#">
-            <input type="hidden" name="slogan_id" value=1>
+          <form action="localhost:3000/students/{{../student.id}}/badges/{{id}}">
             <input type="hidden" name="vote_type" value="down">
             <button class="down" type="submit" name="submit">
                 <img src="img/downvote.gif" alt="downvote_image" />
@@ -68,6 +67,12 @@
         <input type="text" name="content" />
         <input type="image" src="img/add_button.png" alt="Add Slogan" />
       </form>
+    </div>
+
+    <div class="nav">
+      <span class="nav-link">
+        <a class="home-btn" href="spa-badge.html"> HOME </a>
+      </span>
     </div>
   </script>
 
