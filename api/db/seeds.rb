@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+require 'faker'
+
+["Walter","Michael","Karla","Ryan","Natasha","Shawn"].each do |person|
+  new_peep = Student.create(name: person)
+end
