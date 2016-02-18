@@ -126,20 +126,29 @@ var showStudent = function(event) {
 }
 
 var goHome = function() {
-  console.log("Going Home!")
+  // console.log("Going Home!")
   displayAllStudents()
 }
 
 var voteOnBadge = function() {
+  event.preventDefault()
   event = event || window.event
   var target = event.target || event.srcElement
   // console.log("I Voted!")
   // console.log(target)
+  var url = target.getAttribute("action")
+  var hiddenInput = target.getElementsByTagName('input')[1]
+  console.log(hiddenInput)
+  var data = hiddenInput.name + "=" + hiddenInput.value
+  console.log(data)
 
-  var thisClass = target.getAttribute("class")
-  var voteType = target.childNodes[1].getAttribute("class")
-  var badgeID = target.getAttribute("id")
-
+  // miniQuery.AjaxWrapper.request({
+  //   url: url,
+  //   type: 'PUT',
+  //   data: data
+  // }).then(function(response) {
+  //   console.log(response)
+  // })
 }
 
 var submitNewBadge = function() {

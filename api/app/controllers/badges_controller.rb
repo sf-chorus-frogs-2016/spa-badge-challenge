@@ -22,14 +22,18 @@ class BadgesController < ApplicationController
 
   def update
     p "******************************"
+    p "PARAMS ARE:"
     p params
     p "******************************"
+    p params[:data]
+    p "******************************"
     vote = params[:vote_type]
+    p vote
     vote == "up" ? @badge.votes += 1 : @badge.votes -= 1
 
     if @badge.save
       # head :no_content
-      render json: @badge, status: :updated, location: @badge
+      render json: @badge #, status: :updated, location: @badge
     else
       errs
     end

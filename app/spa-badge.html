@@ -39,7 +39,9 @@
         <li class="body">{{text}}</li>
 
         <div class="vote-on">
-          <form action="#" class="vote" id="{{id}}">
+          <form action="http://localhost:3000/students/{{../student.id}}/badges/{{id}}" class="vote" id="{{id}}">
+            <input type="hidden" name="slogan_id" value={{id}}>
+            <input type="hidden" name="vote-type" value="up">
             <button class="up" type="submit" name="submit">
               <img src="img/upvote.gif" alt="upvote_image" />
             </button>
@@ -47,9 +49,11 @@
         </div>
 
         <div class="vote-on">
-          <form action="#" class="vote" id="{{id}}">
+          <form action="http://localhost:3000/students/{{../student.id}}/badges/{{id}}" class="vote" id="{{id}}">
+            <input type="hidden" name="slogan_id" value={{id}}>
+            <input type="hidden" name="vote-type" value="down">
             <button class="down" type="submit" name="submit">
-                <img src="img/downvote.gif" alt="downvote_image" />
+              <img src="img/downvote.gif" alt="downvote_image" />
             </button>
           </form>
         </div>
