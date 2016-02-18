@@ -10,7 +10,7 @@ var nameListener = function(){
     var id = parseInt(this.id);
     var clickedName = this.text;
     mainContainerToggle();
-
+    displayStudentPage(id)
   })
 }
 
@@ -43,25 +43,20 @@ var displaySpaPage = function(studentObjects){
       id: studentObjects[i].id
     }
     var compiledHtml = template(context);
-    // console.log(compiledHtml);
     $("#all-the-peeps").append(compiledHtml);
     nameListener();
     };
 
 
-var displayStudentPage = function(badges){
+var displayStudentPage = function(id){
   $('.indi-student-container').show();
-  var theTemplateScript = document.getElementById("#badges-handlebar").text;
-  var theTemplate = Handlebars.compile(theTemplateScript);
-  var badges = [];
-  for (var i = 0; i < badgeObjects.length; i++){
+  for (var i = 0; i < studentObjects.length; i++){
     var context={
+      name: studentObjects[i].name
 
     };
-
 };
 };
-
 
 
 
