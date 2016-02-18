@@ -51,9 +51,9 @@ var displaySpaPage = function(studentObjects){
 var displayStudentPage = function(id){
   $('.indi-student-container').show();
   for (var i = 0; i < studentObjects.length; i++){
+        //Pseudocode: to match student with id after loop and then filling this in for context info.
     var context={
       name: studentObjects[i].name
-
     };
 };
 };
