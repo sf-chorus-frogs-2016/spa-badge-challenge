@@ -11,14 +11,26 @@
     <div class="logo">
       <h1> SPA Badge </h1>
     </div>
-    <h1> SF Cohorts </h1>
-      <ul id="cohort-name">
+    <div class="cohorts"></div>
+    <div class="members"></div>
+
         <script id="cohort" type="text/x-handlebars-template">
-          {{#each cohorts}}
-            <li><a href="">{{name}} {{year}}</a></li>
-          {{/each}}
+          <h1> SF Cohorts </h1>
+          <ul>
+            {{#each cohorts}}
+              <li><a href="http://localhost:3000/cohorts/{{id}}/members">{{name}} {{year}}</a></li>
+            {{/each}}
+          </ul>
         </script>
-      </ul>
+
+        <script id="member" type="text/x-handlebars-template">
+          <h1>{{cohort}}</h1>
+          <ul>
+            {{#each members}}
+              <li><a href="">{{first_name}}</a></li>
+            {{/each}}
+          </ul>
+        </script>
   </div>
 </body>
 </html>

@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.all
-    render json: @members
+    render json: @members, include: :cohort
   end
 
   def show
