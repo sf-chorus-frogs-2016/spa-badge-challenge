@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+10.times do
+	User.create(name: Faker::Name.name)
+end
+
+100.times do |i|
+	i = rand(10)
+	Badge.create(description: Faker::Company.bs, user_id: i )
+end
