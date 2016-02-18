@@ -39,4 +39,4 @@ Considerations
 - TodoMVC has helpful tips for patterns you could use in your app: https://github.com/tastejs/todomvc/tree/gh-pages/examples/vanillajs
 
 
-GONNA GET SHIT DONE!!!!
+
