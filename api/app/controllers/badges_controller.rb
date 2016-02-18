@@ -13,9 +13,5 @@ class BadgesController < ApplicationController
   def create
   end
 
-  private
-    def set_student
-      @badge = Badge.find(params[:id])
-    end
 
 end

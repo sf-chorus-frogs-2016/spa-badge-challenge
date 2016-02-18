@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   
   resources :badges, except: [:new, :edit] do
-    resources :votes, except: [:new, :edit]
+    resources :votes, except: [:new]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
