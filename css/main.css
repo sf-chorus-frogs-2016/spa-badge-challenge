@@ -312,6 +312,7 @@ th {
   display: inline-block;
   width: 30px;
   height: 30px;
+  margin-bottom: -9px;
 }
 
 #badge_text {
