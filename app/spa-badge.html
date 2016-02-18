@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <title>SPABadge</title>
 </head>
+
 <body>
   <div class="container">
     <div class="logo">
@@ -13,6 +16,7 @@
       </div>
   </div> <!-- end container -->
 </body>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script src="js/app.js"></script>
   <script src="js/miniQuery.js"></script>
@@ -28,15 +32,14 @@
   <script id="student-details" type="text/x-handlebars-template">
     <h1>Words To Be Remembered By</h1>
     <h2>{{student.first_name}}&#39s Badges</h2>
+
     <div class="slogan">
-    {{#each badges}}
-
       <ol>
-      <li class="body">{{text}}</li>
+      {{#each badges}}
+        <li class="body">{{text}}</li>
 
-      <div class="vote-on">
-          <form action="localhost:3000/students/{{../student.id}}/badges/{{id}}">
-            <input type="hidden" name="vote_type" value="up">
+        <div class="vote-on">
+          <form action="#" class="vote" id="{{id}}">
             <button class="up" type="submit" name="submit">
               <img src="img/upvote.gif" alt="upvote_image" />
             </button>
@@ -44,8 +47,7 @@
         </div>
 
         <div class="vote-on">
-          <form action="localhost:3000/students/{{../student.id}}/badges/{{id}}">
-            <input type="hidden" name="vote_type" value="down">
+          <form action="#" class="vote" id="{{id}}">
             <button class="down" type="submit" name="submit">
                 <img src="img/downvote.gif" alt="downvote_image" />
             </button>
@@ -53,17 +55,15 @@
         </div>
 
         <div class="points">
-          (25 points)
+          (Points: {{votes}})
         </div>
+      {{/each}}
       </ol>
-      </div>
-
-    {{/each}}
+    </div>
 
     <div class="add-badge">
       <h3> Add a Badge: </h3>
-      <form action="#">
-        <input type="hidden" name="user_id" value="5" />
+      <form action="#" class="new-badge" value="{{student.id}}">
         <input type="text" name="content" />
         <input type="image" src="img/add_button.png" alt="Add Slogan" />
       </form>
@@ -75,6 +75,5 @@
       </span>
     </div>
   </script>
-
 
 </html>

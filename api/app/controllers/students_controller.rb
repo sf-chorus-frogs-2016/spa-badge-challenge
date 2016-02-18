@@ -43,6 +43,6 @@ class StudentsController < ApplicationController
   end
 
   def errs
-    render json: @studnet.errors, status: :unprocessable_entity
+    render json: @student.errors, status: :unprocessable_entity
   end
 end
