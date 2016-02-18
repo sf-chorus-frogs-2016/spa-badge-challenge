@@ -7,7 +7,7 @@ $(document).ready(function(){
   var nameTemplate = Handlebars.compile(nameText);
   var introText = $('#intro-template').html();
   var introTemplate = Handlebars.compile(introText);
-  var addBadgeText = $('#badge')
+  var addBadgeText = $('#add-badge-template').html();
 
 
 
