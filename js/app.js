@@ -5,10 +5,6 @@ miniQuery.AjaxWrapper.request({
  type: 'GET'
 }).then(function(response) {
 	var students = JSON.parse(response)
-	// var list_values = miniQuery.SweetSelector.select('li')
-	// for(var i = 0; i < list_values.length; i++){
-	// 	list_values[i].innerHTML = students[i].name
-	// }
 	for(var i = 0; i < students.length; i++){
     	var node = document.createElement("li");
     	var a = document.createElement('a');
