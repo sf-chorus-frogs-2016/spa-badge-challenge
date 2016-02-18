@@ -67,7 +67,7 @@ miniQuery.DOM.hide('.badge-page');
 miniQuery.EventDispatcher.on('.home-page-nav','click', function(){
   miniQuery.DOM.hide('.badge-page');
   miniQuery.DOM.show('.main-page');
-  debugger;
+  return false;
 })
 
 // Create votes

@@ -62,6 +62,7 @@ var miniQuery = (function(){
         var promise = new Promise(function(resolve, error){
           var newReq = new XMLHttpRequest();
           newReq.open(ajaxRequest.type, ajaxRequest.url);
+
           if (!!ajaxRequest.data) {
             newReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             newReq.send(ajaxRequest.data);
