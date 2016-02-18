@@ -39,7 +39,7 @@
 
             <div class="body">
               {{#each badges}}
-                <li class="badge-group">{{ body }}</li>
+                <li class="badge-group" badge_id="{{id}}">{{ body }}</li>
               {{/each}}
             </div>
 
@@ -48,8 +48,6 @@
     </div>
   </script>
 
- <!--  <div class="error page">
-    <h3>Sorry, something went wrong :(</h3>
-  </div> -->
-
+  {{ if display_errors }}
+    <h3> {{ display_errors }} </h3>
 </html>

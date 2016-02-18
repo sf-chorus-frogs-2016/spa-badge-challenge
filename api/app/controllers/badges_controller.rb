@@ -11,7 +11,11 @@ class BadgesController < ApplicationController
 
   def create
     @badge = Badge.new(badge_params)
-    render json: prepare_badge(@badge), status: :created
+    if @badge.save
+      render json: prepare_badge(@badge), status: :created, location: @badge
+    else
+      display_error
+    end
   end
 
   private
@@ -23,7 +27,7 @@ class BadgesController < ApplicationController
     params.permit(:body)
   end
 
-  def display_error
+  def display_errors
     render json: @post.errors, status: :unprocessable_entity
   end
 

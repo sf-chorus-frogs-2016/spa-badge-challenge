@@ -40,12 +40,12 @@ var showEachStudentBindListener = function(event){
     type: "GET"
   })
   .then(function(response){
+    console.log(response);
     var badge_data = JSON.parse(response).badges;
     var theBadgeScript = $('#each-student').html();
     var badgeTemplate = Handlebars.compile(theBadgeScript);
     var theCompliedHtml = badgeTemplate({badges:badge_data});
     $('.students-list').html(theCompliedHtml);
-    console.log(theCompliedHtml);
   })
 
 }

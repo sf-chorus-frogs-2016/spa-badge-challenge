@@ -15,4 +15,8 @@ class StudentsController < ApplicationController
   def set_student
     @student = Student.find(params[:id])
   end
+
+  def display_errors
+    render json: @student.errors, status: :unprocessable_entity
+  end
 end
